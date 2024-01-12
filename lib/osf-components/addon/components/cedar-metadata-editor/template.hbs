@@ -1,4 +1,4 @@
-<div local-class='cedar-add-container'>
+<div local-class='cedar-metadata-add-container'>
     {{#if this.save.isRunning}} 
         <div local-class='saving-container'>
             <LoadingIndicator @dark={{true}}/>
@@ -10,7 +10,7 @@
             local-class='cedar-editor'
             config={{this.cedarConfig}}
             templateObject={{@cedarMetadataTemplate.template}}
-            instanceObject={{@instanceObject}}
+            instanceObject={{@cedarMetadataRecord}}
         />
     </div>
     <div local-class='action-container'>
@@ -19,7 +19,7 @@
             data-test-save-button
             data-analytics-name='Save cedar metadata'
             disabled={{this.save.isRunning}}
-            {{on 'click' this.save}}
+            {{on 'click' (perform this.save)}}
         >
             {{ t 'cedar.editor.save-button' }}
         </Button>

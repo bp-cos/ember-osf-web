@@ -1,5 +1,16 @@
-<cedar-artifact-viewer
-    config={{this.config}}
-    instanceObject={{@instanceObject}}
-    templateObject={{@templateObject}}
-/>
+<div local-class='cedar-metadata-renderer-container'>
+    <div local-class='draft-container {{if this.isDraft 'draft'}}'>
+        {{#if this.isDraft}}
+            {{t 'cedar.renderer.draft-explanation'}}
+        {{else}}
+            {{t 'cedar.renderer.published-explanation'}}
+        {{/if}}
+    </div>
+    <div local-class='renderer-container'>
+        <cedar-artifact-viewer
+            config={{this.config}}
+            instanceObject={{@cedarMetadataRecord.metadata}}
+            templateObject={{@cedarMetadataTemplate.template}}
+        />
+    </div>
+</div>

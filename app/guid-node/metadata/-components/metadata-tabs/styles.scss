@@ -18,6 +18,7 @@
 
     .tabs {
         width: 100%;
+        cursor: pointer;
 
         &.hidden {
             width: calc(100% - 25px);
@@ -50,6 +51,16 @@
         /* stylelint-enable selector-no-qualifying-type */
         .tab-list {
             overflow: hidden;
+
+            .draft {
+                color: lighten($brand-danger, 25%);
+
+                &.dark {
+                    color: $brand-danger;
+                    font-weight: bold;
+                }
+            }
+
 
             li {
                 display: block;

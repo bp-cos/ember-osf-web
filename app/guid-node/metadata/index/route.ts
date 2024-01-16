@@ -25,6 +25,7 @@ export default class MetadataRoute extends Route {
         return {
             guidNode: params.guidNode,
             cedarMetadataRecords,
+            defaultIndex: 0,
         };
     }
 }

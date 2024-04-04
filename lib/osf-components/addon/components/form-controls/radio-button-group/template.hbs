@@ -1,35 +1,37 @@
-<div
-    data-test-radio-button-group
-    local-class='RadioButtonGroup'
-    class={{@class}}
-    ...attributes
->
-    {{#each this.options as |option|}}
-        {{#let (unique-id 'radio' option) as |uniqueId|}}
-            <div
-                data-test-radio-input
-                local-class='RadioButton'
-            >
-                <input
-                    type='radio'
-                    id={{uniqueId}}
-                    name={{@valuePath}}
-                    value={{option.inputValue}}
-                    onclick={{action this.updateChangeset option.inputValue}}
-                    onchange={{@onInput}}
-                    disabled={{this.disabled}}
-                    checked={{if (eq (get @changeset @valuePath) option.inputValue) true false}}
+<div local-class='RadioButtonContainer'>
+    <div
+        data-test-radio-button-group
+        local-class='RadioButtonGroup'
+        class={{@class}}
+        ...attributes
+    >
+        {{#each this.options as |option|}}
+            {{#let (unique-id 'radio' option) as |uniqueId|}}
+                <div
+                    data-test-radio-input
+                    local-class='RadioButton'
                 >
-                <label
-                    local-class='RadioLabel'
-                    for={{uniqueId}}
-                >
-                    {{option.displayText}}
-                    <Registries::SchemaBlockRenderer::HelperTextIcon @helpText={{get @helpTextMapping option.inputValue}} />
-                </label>
-            </div>
-        {{/let}}
-    {{/each}}
+                    <input
+                        type='radio'
+                        id={{uniqueId}}
+                        name={{@valuePath}}
+                        value={{option.inputValue}}
+                        onclick={{action this.updateChangeset option.inputValue}}
+                        onchange={{@onInput}}
+                        disabled={{this.disabled}}
+                        checked={{if (eq (get @changeset @valuePath) option.inputValue) true false}}
+                    >
+                    <label
+                        local-class='RadioLabel'
+                        for={{uniqueId}}
+                    >
+                        {{option.displayText}}
+                        <Registries::SchemaBlockRenderer::HelperTextIcon @helpText={{get @helpTextMapping option.inputValue}} />
+                    </label>
+                </div>
+            {{/let}}
+        {{/each}}
+    </div>
     {{#if @shouldShowMessages}}
         <ValidationErrors
             @changeset={{@changeset}}

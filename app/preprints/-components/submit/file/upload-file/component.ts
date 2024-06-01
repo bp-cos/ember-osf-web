@@ -57,19 +57,10 @@ export default class PreprintUpload extends Component<PreprintUploadArgs> {
 
     @action
     async success(_: any, __:any, file: FileModel): Promise<void> {
-        // console.log(1, file);
-        // const preprint = await this.args.manager.preprint;
-        // console.log(11, preprint);
-        // const files = await this.args.manager.preprint.files;
-        // console.log(2, files);
-        // const osfStorage = await files!.firstObject;
-        // console.log(21, osfStorage);
-        // const primaryFile = await osfStorage!.files;
-        // console.log(3, primaryFile);
-        // // this.args.manager.preprint.set('primaryFile', primaryFile.firstObject);
-        // console.log(4);
-
-        // await this.args.manager.preprint.save();
+        const preprint = await this.args.manager.preprint;
+        const files = await this.args.manager.preprint.files;
+        const osfStorage = await files!.firstObject;
+        const primaryFile = await osfStorage!.files;
         this.args.validate(file);
     }
 }

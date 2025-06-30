@@ -15,15 +15,19 @@
     }
 
     .action {
-        width: 50px;
+        width: 80px;
         height: 30px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
 
         .blue-button {
             color: $brand-info;
+        }
+
+        .red-button {
+            color: $brand-danger;
         }
     }
 }

@@ -86,6 +86,12 @@ export default class PreprintFile extends Component<FileArgs>{
         return this.isProjectSelectDisplayed || this.isFileUploadDisplayed;
     }
 
+    @task
+    @waitFor
+    async deleteFile(): Promise<void> {
+        await taskFor(this.args.manager.onDeletePreprintViaFile).perform();
+    }
+
     @action
     public addNewfile(): void {
         this.file = null;

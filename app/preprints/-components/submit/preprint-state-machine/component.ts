@@ -66,7 +66,6 @@ export default class PreprintStateMachine extends Component<StateMachineArgs>{
 
     constructor(owner: unknown, args: StateMachineArgs) {
         super(owner, args);
-
         if (this.args.newVersion) {
             this.preprint = this.args.preprint;
             return;
@@ -107,8 +106,20 @@ export default class PreprintStateMachine extends Component<StateMachineArgs>{
     @task
     @waitFor
     public async onDelete(): Promise<void> {
+        // TODO update to destroy once the backend supports destroy
         await this.preprint.deleteRecord();
-        await this.router.transitionTo('preprints.discover', this.provider.id);
+        await this.router.transitionTo('preprints.select');
+    }
+
+    /**
+     * Callback for the action-flow component
+     */
+    @task
+    @waitFor
+    public async onDeletePreprintViaFile(): Promise<void> {
+        // TODO update to destroy once the backend supports destroy
+        await this.preprint.deleteRecord();
+        await this.router.transitionTo('preprints.select');
     }
 
     /**

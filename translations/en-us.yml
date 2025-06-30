@@ -1630,10 +1630,16 @@ preprints:
             doi: 'DOI'
             guid: 'Guid'
         step-file:
-            delete-modal-button: 'Continue'
-            delete-modal-button-tooltip: 'Version file'
-            delete-modal-title: 'Add a new {singularPreprintWord} file'
-            delete-warning: 'This will allow a new version of the {singularPreprintWord} file to be uploaded to the {singularPreprintWord}. The existing file will be retained as a version of the {singularPreprintWord}.'
+            edit:
+                modal-button: 'Continue'
+                modal-button-tooltip: 'Version file'
+                modal-title: 'Add a new {singularPreprintWord} file'
+                warning: 'This will allow a new version of the {singularPreprintWord} file to be uploaded to the {singularPreprintWord}. The existing file will be retained as a version of the {singularPreprintWord}.'
+            delete:
+                modal-button: 'Continue'
+                modal-button-tooltip: 'Delete file'
+                modal-title: 'Delete the {singularPreprintWord} file'
+                warning: 'This will delete the current {singularPreprintWord} file. You will then start a new {singularPreprintWord}.'
             file-select-label: 'Select from an existing OSF project'
             file-select-help-text: 'Start a new {singularPreprintWord} to attach a file from your project.'
             file-upload-label: 'Upload from your computer'

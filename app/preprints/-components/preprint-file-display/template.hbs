@@ -14,13 +14,27 @@
                     @icon='edit'
                     @noBackground={{true}}
                     @delete={{action @addNewFile}}
-                    @confirmButtonText = {{t 'preprints.submit.step-file.delete-modal-button'}}
-                    @modalTitle={{t 'preprints.submit.step-file.delete-modal-title' singularPreprintWord = @preprintWord}}
-                    @modalBody={{t 'preprints.submit.step-file.delete-warning' singularPreprintWord = @preprintWord}}
+                    @confirmButtonText = {{t 'preprints.submit.step-file.edit.modal-button'}}
+                    @modalTitle={{t 'preprints.submit.step-file.edit.modal-title' singularPreprintWord = @preprintWord}}
+                    @modalBody={{t 'preprints.submit.step-file.edit.warning' singularPreprintWord = @preprintWord}}
                     local-class='blue-button'
                 />
                 <EmberTooltip>
-                    {{t 'preprints.submit.step-file.delete-modal-button-tooltip'}}
+                    {{t 'preprints.submit.step-file.edit.modal-button-tooltip'}}
+                </EmberTooltip>
+                <DeleteButton
+                    data-test-delete-button
+                    @small={{true}}
+                    @icon='trash'
+                    @noBackground={{true}}
+                    @delete={{perform @deleteFile}}
+                    @confirmButtonText = {{t 'preprints.submit.step-file.delete.modal-button'}}
+                    @modalTitle={{t 'preprints.submit.step-file.delete.modal-title' singularPreprintWord = @preprintWord}}
+                    @modalBody={{t 'preprints.submit.step-file.delete.warning' singularPreprintWord = @preprintWord}}
+                    local-class='red-button'
+                />
+                <EmberTooltip>
+                    {{t 'preprints.submit.step-file.delete.modal-button-tooltip'}}
                 </EmberTooltip>
             </div>
         {{/if}}
